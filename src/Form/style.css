@@ -1,3 +1,8 @@
+.form__header {
+    color: #000000cf;
+    text-align: center;
+}
+
 .form__fieldset {
     width: 100%;
     text-align: center;
@@ -21,4 +26,25 @@
     border-radius: 10px;
     border: 2px solid #c79600;
     background-color: #f0ffff;
+}
+
+.form__button {
+    width: 40%;
+    margin: 20px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 2px solid #c79600;
+}
+
+.form__button:hover {
+    background-color: #c79600;
+}
+
+.form__button:active {
+    background-color: #f2dc9a;
+
+}
+
+.form__button--clearButton {
+    float: right;
 }
