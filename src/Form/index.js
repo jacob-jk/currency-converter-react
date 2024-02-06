@@ -10,13 +10,15 @@ const Form = () => {
 
   const onCurrencyChange = ({ target }) => {
     setCurrency(target.value);
-    const myRate = currencies.find(({ name }) => name === target.value).value;
-    setRate(myRate);
+    const selectedRate = currencies.find(
+      ({ name }) => name === target.value
+    ).value;
+    setRate(selectedRate);
   };
 
   const onAmountChange = ({ target }) => setAmount(target.value);
 
-  const myFunction = () => {
+  const calculateResult = () => {
     const outcome = rate * amount;
     setResult(outcome.toFixed(2));
   };
@@ -30,7 +32,7 @@ const Form = () => {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    myFunction();
+    calculateResult();
   };
 
   return (
