@@ -5,6 +5,8 @@ import { currencies } from "../currencies";
 const Form = () => {
   const [currency, setCurrency] = useState("");
   const [rate, setRate] = useState("");
+  const [amount, setAmount] = useState("");
+  const [result, setResult] = useState("0,00");
 
   const onCurrencyChange = ({ target }) => {
     setCurrency(target.value);
@@ -12,13 +14,23 @@ const Form = () => {
     setRate(myRate);
   };
 
+  const onAmountChange = ({ target }) => setAmount(target.value);
+
+  const myFunction = () => {
+    const outcome = rate * amount;
+    setResult(outcome.toFixed(2));
+  };
+
   const onReset = () => {
     setCurrency("");
     setRate("");
+    setAmount("");
+    setResult("0,00");
   };
 
   const onFormSubmit = (event) => {
     event.preventDefault();
+    myFunction();
   };
 
   return (
@@ -68,9 +80,11 @@ const Form = () => {
                 type="number"
                 name="amount"
                 placeholder="Wpisz kwotę"
+                value={amount}
                 min="0"
                 step="any"
                 required
+                onChange={onAmountChange}
               />
             </label>
           </p>
@@ -87,7 +101,7 @@ const Form = () => {
         </div>
         <div className="form__footer">
           Kwota po przeliczeniu wynosi:
-          <strong> {} </strong> złotych.
+          <strong> {result} </strong> PLN.
         </div>
       </form>
     </>
