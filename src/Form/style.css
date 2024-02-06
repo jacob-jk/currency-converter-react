@@ -48,3 +48,9 @@
 .form__button--clearButton {
     float: right;
 }
+
+.form__footer {
+    color: #000000cf;
+    text-align: center;
+    margin: 0
+}

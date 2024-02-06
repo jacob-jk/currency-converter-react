@@ -6,16 +6,27 @@ const Form = () => {
   const [currency, setCurrency] = useState("");
   const [rate, setRate] = useState("");
 
-  const changeCurrency = ({ target }) => setCurrency(target.value);
-  const changeRate = ({ target }) => setRate(target.value);
-  // const myRate = currencies.find(({ name }) => name === currency).value;
+  const onCurrencyChange = ({ target }) => {
+    setCurrency(target.value);
+    const myRate = currencies.find(({ name }) => name === target.value).value;
+    setRate(myRate);
+  };
+
+  const onReset = () => {
+    setCurrency("");
+    setRate("");
+  };
+
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+  };
 
   return (
     <>
       <p className="form__header">
         <strong>Aktualny kurs walut</strong>
       </p>
-      <form>
+      <form onSubmit={onFormSubmit}>
         <fieldset className="form__fieldset">
           <p>
             <label>
@@ -25,7 +36,7 @@ const Form = () => {
                 name="currency"
                 required
                 value={currency}
-                onChange={changeCurrency}
+                onChange={onCurrencyChange}
               >
                 <option hidden>-brak-</option>
                 {currencies.map((currency) => (
@@ -46,7 +57,6 @@ const Form = () => {
                 value={rate}
                 required
                 disabled
-                onChange={changeRate}
               />
             </label>
           </p>
@@ -70,9 +80,14 @@ const Form = () => {
           <button
             className="form__button form__button--clearButton"
             type="reset"
+            onClick={onReset}
           >
             Wyczyść!
           </button>
+        </div>
+        <div className="form__footer">
+          Kwota po przeliczeniu wynosi:
+          <strong> {} </strong> złotych.
         </div>
       </form>
     </>

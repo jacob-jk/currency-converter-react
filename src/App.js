@@ -1,7 +1,6 @@
 // import { useState } from "react";
 import Form from "./Form";
 import Container from "./Container";
-import Footer from "./Footer";
 // import { currencies } from "./currencies";
 
 function App() {
@@ -15,7 +14,6 @@ function App() {
   return (
     <Container>
       <Form />
-      <Footer />
     </Container>
   );
 }
