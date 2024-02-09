@@ -8,14 +8,14 @@
       "type": "image/png"
     },
     {
-      "src": "https://images.smartcapitalmind.com/currency-globe.jpg",
-      "type": "image/jpg",
-      "sizes": "574x585"
+      "src": "icon.png",
+      "type": "image/png",
+      "sizes": "256x256"
     },
     {
-      "src": "https://www.worldatlas.com/upload/4c/1e/8e/shutterstock-585541982.jpg",
+      "src": "og-image.jpg",
       "type": "image/jpg",
-      "sizes": "698x386"
+      "sizes": "2000x1040"
     }
   ],
   "start_url": ".",
