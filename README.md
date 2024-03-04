@@ -14,19 +14,20 @@ Use the originally designed calculator converting one currency to another! By se
 
 ## Features
 
-ES6+
-HTML
-JavaScript
-CSS
-BEM convention
-Normalize
-GIT
-Grid
-useState
-React JS
-React Hooks
-Immutability
-Styled Components
+<li>ES6+</li>
+<li>HTML</li>
+<li>JavaScript</li>
+<li>CSS</li>
+<li>BEM convention</li>
+<li>Normalize</li>
+<li>GIT</li>
+<li>Grid</li>
+<li>useState</li>
+<li>useEffect</li>
+<li>React JS</li>
+<li>React Hooks</li>
+<li>Immutability</li>
+<li>Styled Components</li>
 
 ## Available Scripts
 
