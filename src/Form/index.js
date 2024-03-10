@@ -91,10 +91,10 @@ const Form = () => {
             </label>
           </p>
         </fieldset>
-        <div>
-          <button className="form__button">Przelicz!</button>
+        <div className="form__Button">
+          <button className="form__countButton">Przelicz!</button>
           <button
-            className="form__button form__button--clearButton"
+            className="form__countButton form__countButton--clearButton"
             type="reset"
             onClick={onReset}
           >

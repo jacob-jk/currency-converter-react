@@ -28,24 +28,28 @@
     background-color: #f0ffff;
 }
 
-.form__button {
-    width: 40%;
+.form__Button {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.form__countButton {
     margin: 20px;
     padding: 5px;
     border-radius: 10px;
     border: 2px solid #c79600;
 }
 
-.form__button:hover {
+.form__countButton:hover {
     background-color: #c79600;
 }
 
-.form__button:active {
+.form__countButton:active {
     background-color: #f2dc9a;
 
 }
 
-.form__button--clearButton {
+.form__countButton--clearButton {
     float: right;
 }
 
