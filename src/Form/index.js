@@ -1,52 +1,38 @@
-import "./style.css";
-import { useState } from "react";
+import { ThemeProvider } from "styled-components";
+import {
+  theme,
+  Header,
+  Fieldset,
+  Category,
+  Select,
+  Buttons,
+  Button,
+  Conclusion,
+} from "./styled";
 import { currencies } from "../currencies";
+import { useCalculateResult } from "./useCalculateResult";
 
 const Form = () => {
-  const [currency, setCurrency] = useState("");
-  const [rate, setRate] = useState("");
-  const [amount, setAmount] = useState("");
-  const [result, setResult] = useState("0,00");
-
-  const onCurrencyChange = ({ target }) => {
-    setCurrency(target.value);
-    const selectedRate = currencies.find(
-      ({ name }) => name === target.value
-    ).value;
-    setRate(selectedRate);
-  };
-
-  const onAmountChange = ({ target }) => setAmount(target.value);
-
-  const calculateResult = () => {
-    const outcome = rate * amount;
-    setResult(outcome.toFixed(2));
-  };
-
-  const onReset = () => {
-    setCurrency("");
-    setRate("");
-    setAmount("");
-    setResult("0,00");
-  };
-
-  const onFormSubmit = (event) => {
-    event.preventDefault();
-    calculateResult();
-  };
+  const [
+    currency,
+    rate,
+    amount,
+    result,
+    onCurrencyChange,
+    onAmountChange,
+    onReset,
+    onFormSubmit,
+  ] = useCalculateResult();
 
   return (
-    <>
-      <p className="form__header">
-        <strong>Aktualny kurs walut</strong>
-      </p>
+    <ThemeProvider theme={theme}>
+      <Header>Aktualny kurs walut</Header>
       <form onSubmit={onFormSubmit}>
-        <fieldset className="form__fieldset">
+        <Fieldset>
           <p>
             <label>
-              <span className="form__positions">Waluta</span>
-              <select
-                className="form__box"
+              <Category>Waluta</Category>
+              <Select
                 name="currency"
                 required
                 value={currency}
@@ -56,14 +42,14 @@ const Form = () => {
                 {currencies.map((currency) => (
                   <option key={currency.id}>{currency.name}</option>
                 ))}
-              </select>
+              </Select>
             </label>
           </p>
           <p>
             <label>
-              <span className="form__positions">Kurs</span>
-              <input
-                className="form__box"
+              <Category>Kurs</Category>
+              <Select
+                as="input"
                 type="number"
                 name="rate"
                 step="any"
@@ -76,9 +62,9 @@ const Form = () => {
           </p>
           <p>
             <label>
-              <span className="form__positions">Kwota</span>
-              <input
-                className="form__box"
+              <Category>Kwota</Category>
+              <Select
+                as="input"
                 type="number"
                 name="amount"
                 placeholder="Wpisz kwotę"
@@ -90,23 +76,19 @@ const Form = () => {
               />
             </label>
           </p>
-        </fieldset>
-        <div className="form__Button">
-          <button className="form__countButton">Przelicz!</button>
-          <button
-            className="form__countButton form__countButton--clearButton"
-            type="reset"
-            onClick={onReset}
-          >
+        </Fieldset>
+        <Buttons>
+          <Button>Przelicz!</Button>
+          <Button type="reset" onClick={onReset}>
             Wyczyść!
-          </button>
-        </div>
-        <div className="form__footer">
+          </Button>
+        </Buttons>
+        <Conclusion>
           Kwota po przeliczeniu wynosi:
           <strong> {result} </strong> PLN.
-        </div>
+        </Conclusion>
       </form>
-    </>
+    </ThemeProvider>
   );
 };
 
