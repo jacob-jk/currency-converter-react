@@ -1,5 +1,5 @@
-import "./style.css";
+import { ContainerBox } from "./styled";
 
-const Container = ({ children }) => <div className="container">{children}</div>;
+const Container = ({ children }) => <ContainerBox>{children}</ContainerBox>;
 
 export default Container;
