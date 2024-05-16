@@ -9,7 +9,6 @@ import {
   Button,
   Conclusion,
 } from "./styled";
-import { currencies } from "../currencies";
 import { useCalculateResult } from "./useCalculateResult";
 
 const Form = () => {
@@ -22,6 +21,7 @@ const Form = () => {
     onAmountChange,
     onReset,
     onFormSubmit,
+    exchangeData,
   ] = useCalculateResult();
 
   return (
@@ -39,8 +39,8 @@ const Form = () => {
                 onChange={onCurrencyChange}
               >
                 <option hidden>-brak-</option>
-                {currencies.map((currency) => (
-                  <option key={currency.id}>{currency.name}</option>
+                {Object.keys(exchangeData).map((currency) => (
+                  <option key={currency}>{currency}</option>
                 ))}
               </Select>
             </label>

@@ -1,16 +1,26 @@
-import { useState } from "react";
-import { currencies } from "../currencies";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 export const useCalculateResult = () => {
   const [currency, setCurrency] = useState("");
   const [rate, setRate] = useState("");
   const [amount, setAmount] = useState("");
   const [result, setResult] = useState("0,00");
+  const [exchangeData, setExchangeData] = useState("");
+
+  const getData = async () => {
+    const response = await axios.get("data.json");
+    setExchangeData(response.data.data);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   const onCurrencyChange = ({ target }) => {
     setCurrency(target.value);
-    const selectedRate = currencies.find(
-      ({ name }) => name === target.value
+    const selectedRate = Object.values(exchangeData).find(
+      ({ data }) => data === target.value
     ).value;
     setRate(selectedRate);
   };
@@ -43,5 +53,6 @@ export const useCalculateResult = () => {
     onAmountChange,
     onReset,
     onFormSubmit,
+    exchangeData,
   ];
 };
