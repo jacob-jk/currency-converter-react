@@ -73,3 +73,20 @@ export const Conclusion = styled.div`
   text-align: ${({ theme }) => theme.text.position};
   margin: 0;
 `;
+
+export const LoadingStatus = styled.p`
+  max-width: 500px;
+  height: 100px;
+  padding: 10px;
+  background-color: #ffffff;
+  margin: 50px 0;
+  display: grid;
+  color: ${({ theme }) => theme.colors.primaryColor};
+  text-align: ${({ theme }) => theme.text.position};
+  align-items: ${({ theme }) => theme.text.position};
+  grid-template-columns: auto 1fr auto;
+  border-radius: ${({ theme }) => theme.radiusStyle.radius};
+  border: ${({ theme }) => theme.borderStyle.border};
+`;
+
+export const FailureState = styled(LoadingStatus)``;
