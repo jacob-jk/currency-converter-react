@@ -11,13 +11,13 @@ export const useCalculateResult = () => {
   const onCurrencyChange = ({ target }) => {
     setCurrency(target.value);
     const selectedRate = exchangeData.data[target.value].value;
-    setRate(selectedRate.toFixed(2));
+    setRate(selectedRate);
   };
 
   const onAmountChange = ({ target }) => setAmount(target.value);
 
   const calculateResult = () => {
-    const outcome = (rate * amount).toFixed(2);
+    const outcome = rate * amount;
     setResult({
       outcome,
       currency,

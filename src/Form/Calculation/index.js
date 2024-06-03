@@ -9,7 +9,7 @@ const Calculation = ({ result }) => (
         <strong> {parseFloat(result.amount).toFixed(2)} PLN&nbsp;</strong>=
         <strong>
           {" "}
-          {result.outcome} {result.currency}
+          {result.outcome.toFixed(2)} {result.currency}
         </strong>
         .
       </p>
