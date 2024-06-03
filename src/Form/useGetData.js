@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { apiURL } from "./url";
 
 export const useGetData = () => {
   const [exchangeData, setExchangeData] = useState({ loadingState: "loading" });
@@ -7,9 +8,7 @@ export const useGetData = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get(
-          "https://api.currencyapi.com/v3/latest?apikey=cur_live_AEpzNCETIAi0SG8Jnsj1XLgXroZkmjhT2VF7GQuY&base_currency=PLN"
-        );
+        const response = await axios.get(apiURL);
         setExchangeData({
           loadingState: "loaded",
           data: response.data.data,
