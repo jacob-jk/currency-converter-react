@@ -6,4 +6,6 @@ export const TimeClock = styled.div`
   padding: 10px 0;
   font-family: "Roboto Mono", monospace;
   font-size: x-small;
+  max-width: 500px;
+  margin: 0 auto;
 `;

@@ -17,6 +17,12 @@ export const theme = {
   },
 };
 
+export const ContainerBox = styled.div`
+  max-width: 500px;
+  color: #f0ffff;
+  margin: 0 auto;
+`;
+
 export const Header = styled.p`
   color: ${({ theme }) => theme.colors.primaryColor};
   text-align: ${({ theme }) => theme.text.position};
