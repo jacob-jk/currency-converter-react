@@ -8,9 +8,9 @@ https://jacob-jk.github.io/currency-converter-react/
 
 ## Description
 
-Use the originally designed calculator converting one currency to another! By selecting wanted currency the calculator shows its current price and later on allows to esitmate the amount of exchanged money.
+Use an originally designed calculator converting one currency to another! By selecting wanted currency the calculator shows its current price and later on allows to esitmate the amount of exchanged money.
 
-![app](/src/images/screenshot.png)
+![app](/src/images/coverter.gif)
 
 ## Features
 
